@@ -3,7 +3,23 @@
   <app-scoreform (submitted)="onSubmitted($event)"></app-scoreform>
 </div>
 <div *ngIf="teamsSelected">
-  <h3>{{this.data.team1}}</h3>
-  <h3>{{this.data.team2}}</h3>
-  <h3>{{this.data.points}}</h3>
+  <table>
+    <tr>
+        <th>{{team1.name}}</th>
+        <th>{{team2.name}}</th>
+    </tr>
+    <tr>
+      <td>
+        <button (click)="addPoint(team1)" [disabled]="gameOver">+</button>
+        {{team1.points}}
+        <button (click)="substractPoint(team1)" [disabled]="gameOver">-</button>
+      </td>
+      <td>
+        <button (click)="addPoint(team2)" [disabled]="gameOver">+</button>
+        {{team2.points}}
+        <button (click)="substractPoint(team2)" [disabled]="gameOver">-</button>
+      </td>
+    </tr>
+  </table>
+  <h3 *ngIf="gameOver">{{winner}} has won!</h3>
 </div>

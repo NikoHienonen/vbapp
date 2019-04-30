@@ -17,6 +17,12 @@
     [(ngModel)]="points" required>
   </div>
 
+  <div class="form-group">
+    <label for="cap">Is there a pointcap?</label>
+    <input type="checkbox" class="form-control" name="cap"
+    [(ngModel)]="cap" required>
+  </div>
+
   <button type="submit" class="btn btn-success" (click)="selected()">Submit</button>
 
 </form>

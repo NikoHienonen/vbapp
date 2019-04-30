@@ -5,16 +5,22 @@ import { Component, EventEmitter, Output } from '@angular/core';
   templateUrl: './scoreform.component.html'
 })
 export class ScoreformComponent  {
-  public team1: string;
-  public team2: string;
+  public team1: string = 'rkc';
+  public team2: string = 'lapa';
   public points = 25;
+  public cap: boolean = false;
   @Output() submitted = new EventEmitter<object>();
 
   constructor() {
   }
 
   selected() {
-    const returnData = {team1: this.team1, team2: this.team1, points: this.points};
+    const returnData = {
+      team1: this.team1, 
+      team2: this.team2, 
+      points: this.points,
+      cap: this.cap
+    };
     console.log(returnData);
     this.submitted.emit(returnData);
   }
