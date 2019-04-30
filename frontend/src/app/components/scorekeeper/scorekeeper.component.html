@@ -1,1 +1,9 @@
 <h1>Scorekeeper</h1>
+<div *ngIf="!teamsSelected">
+  <app-scoreform (submitted)="onSubmitted($event)"></app-scoreform>
+</div>
+<div *ngIf="teamsSelected">
+  <h3>{{this.data.team1}}</h3>
+  <h3>{{this.data.team2}}</h3>
+  <h3>{{this.data.points}}</h3>
+</div>

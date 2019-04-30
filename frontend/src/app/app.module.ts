@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +11,7 @@ import { NotfoundComponent } from './components/notfound/notfound.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { ScheduleComponent } from './components/schedule/schedule.component';
 import { AboutComponent } from './components/about/about.component';
+import { ScoreformComponent } from './components/scoreform/scoreform.component';
 
 @NgModule({
   declarations: [
@@ -20,11 +22,13 @@ import { AboutComponent } from './components/about/about.component';
     NotfoundComponent,
     LandingComponent,
     ScheduleComponent,
-    AboutComponent
+    AboutComponent,
+    ScoreformComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
