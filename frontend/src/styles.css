@@ -5,17 +5,48 @@
   --powder-light: rgba(102, 185, 191, 0.4);
   --tan: rgb(238, 170, 123);
 }
+body, html {
+  margin: 0;
+  height: 100%;
+  font-family: Oxygen, 'Courier New', Courier, monospace;
+}
 h1.header {
   font-size: 5rem;
-}
-.container{
-  margin: 3rem;
 }
 nav {
   margin: 0;
   margin-bottom: 3rem;
-  padding: 1rem 0;
+  top: 0;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
   background-color: var(--powder);
+}
+li{
+  float: left;
+}
+li.float-right {
+  float: right;
+}
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+li a:hover {
+  background-color: var(--teal);
+}
+li h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  margin: 0;
+  color: white;
 }
 a {
   padding: 1rem;
@@ -23,13 +54,49 @@ a {
   color: white;
   font-size: 1.5rem;
 }
-a:hover{
-  background-color: var(--powder-light);
-}
 a.active {
   color: white;
-  background-color: var(--teal);
+  background-color: var(--tangerine);
 }
 .content {
   margin: 0 3rem;
+}
+.container{
+  margin: 3rem;
+}
+input {
+  font-family: Oxygen, 'Courier New', Courier, monospace;
+  font-size: 1.5rem;
+}
+button.submit {
+  font-family: Oxygen, 'Courier New', Courier, monospace;
+  display: inline-block;
+  width: 100%;
+  background-color: var(--tangerine);
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+button.submit:hover {
+  background-color: var(--tan);
+}
+input[type=text], input[type=number], input[type=checkbox] select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+input[type=checkbox] {
+  height: 1.5rem;
+  width: 1.5rem;
+  background: #ddd;
+  border-radius: 100%;
+  position: relative;
+  box-shadow: 0px 1px 3px rgba(0,0,0,0.5);
 }
