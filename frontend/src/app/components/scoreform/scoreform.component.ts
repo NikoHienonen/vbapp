@@ -7,8 +7,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 export class ScoreformComponent  {
   public team1: string = 'rkc';
   public team2: string = 'lapa';
-  public points = 25;
-  public cap: boolean = false;
+  public points = 2;
   @Output() submitted = new EventEmitter<object>();
 
   constructor() {
@@ -19,7 +18,6 @@ export class ScoreformComponent  {
       team1: this.team1, 
       team2: this.team2, 
       points: this.points,
-      cap: this.cap
     };
     console.log(returnData);
     this.submitted.emit(returnData);

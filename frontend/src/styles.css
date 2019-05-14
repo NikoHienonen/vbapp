@@ -1,5 +1,6 @@
 :root {
   --tangerine: rgb(227, 114, 34);
+  --tangerine-light: rgb(227, 114, 34, 0.4);
   --teal: rgb(7, 136, 155);
   --powder: rgb(102, 185, 191);
   --powder-light: rgba(102, 185, 191, 0.4);
@@ -81,7 +82,7 @@ button.submit {
   cursor: pointer;
 }
 button.submit:hover {
-  background-color: var(--tan);
+  background-color: var(--tangerine-light);
 }
 input[type=text], input[type=number], input[type=checkbox] select {
   width: 100%;

@@ -5,10 +5,12 @@
 <div *ngIf="teamsSelected">
   <table>
     <tr>
-        <th>{{team1.name}}</th>
-        <th>{{team2.name}}</th>
+      <th>Name</th>
+      <th>{{team1.name | titlecase}}</th>
+      <th>{{team2.name | titlecase}}</th>
     </tr>
     <tr>
+      <th>Points</th>
       <td>
         <button (click)="addPoint(team1)" [disabled]="gameOver">+</button>
         {{team1.points}}
@@ -20,6 +22,11 @@
         <button (click)="substractPoint(team2)" [disabled]="gameOver">-</button>
       </td>
     </tr>
+    <tr>
+      <th>Rounds</th>
+      <td>{{team1.roundsWon}}</td>
+      <td>{{team2.roundsWon}}</td>
+    </tr>
   </table>
-  <h3 *ngIf="gameOver">{{winner}} has won!</h3>
+  <h3 *ngIf="gameOver">{{winner | titlecase}} has won {{finalStandings}}!</h3>
 </div>
