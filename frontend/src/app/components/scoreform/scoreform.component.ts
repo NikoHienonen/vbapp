@@ -15,8 +15,8 @@ export class ScoreformComponent  {
 
   selected() {
     const returnData = {
-      team1: this.team1, 
-      team2: this.team2, 
+      team1: this.team1,
+      team2: this.team2,
       points: this.points,
     };
     console.log(returnData);

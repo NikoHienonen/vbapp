@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ScoreformComponent } from '../scoreform/scoreform.component';
+import { HttpService } from '../../http-service.service';
 
 interface Team {
   name: string;
@@ -25,7 +26,7 @@ export class ScorekeeperComponent implements OnInit {
   public gameOver: boolean = false;
   public finalStandings: string;
   public winner: string;
-  constructor() { }
+  constructor(private httpService: HttpService) { }
 
   ngOnInit() {  }
 
@@ -40,14 +41,14 @@ export class ScorekeeperComponent implements OnInit {
     this.checkRoundVictory(team);
   }
   substractPoint = (team: Team) => {
-    if(team.points !== 0) {
+    if (team.points !== 0) {
       team.points--;
     }
   }
   checkRoundVictory = (team) => {
-    if(team.points === this.points) {
+    if (team.points === this.points) {
         team.roundsWon++;
-        if(team.roundsWon === 3) {
+        if (team.roundsWon === 3) {
           this.winner = team.name;
           this.finalStandings = (team.name === this.team1.name 
           ? `${this.team1.roundsWon} - ${this.team2.roundsWon}`
@@ -62,5 +63,8 @@ export class ScorekeeperComponent implements OnInit {
   resetRound = () => {
     this.team1.points = 0;
     this.team2.points = 0;
+  }
+  postMatchData = () => {
+    this.httpService.postMatchData('mo');
   }
 }

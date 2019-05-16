@@ -3,7 +3,7 @@
   <app-scoreform (submitted)="onSubmitted($event)"></app-scoreform>
 </div>
 <div *ngIf="teamsSelected">
-  <table>
+  <table class="match">
     <tr>
       <th>Name</th>
       <th>{{team1.name | titlecase}}</th>
@@ -12,21 +12,24 @@
     <tr>
       <th>Points</th>
       <td>
-        <button (click)="addPoint(team1)" [disabled]="gameOver">+</button>
+        <button (click)="addPoint(team1)" [disabled]="gameOver"><i class="fas fa-plus"></i></button>
         {{team1.points}}
-        <button (click)="substractPoint(team1)" [disabled]="gameOver">-</button>
+        <button (click)="substractPoint(team1)" [disabled]="gameOver"><i class="fas fa-minus"></i></button>
       </td>
       <td>
-        <button (click)="addPoint(team2)" [disabled]="gameOver">+</button>
+        <button (click)="addPoint(team2)" [disabled]="gameOver"><i class="fas fa-plus"></i></button>
         {{team2.points}}
-        <button (click)="substractPoint(team2)" [disabled]="gameOver">-</button>
+        <button (click)="substractPoint(team2)" [disabled]="gameOver"><i class="fas fa-minus"></i></button>
       </td>
     </tr>
     <tr>
-      <th>Rounds</th>
-      <td>{{team1.roundsWon}}</td>
-      <td>{{team2.roundsWon}}</td>
+      <th class="no-border">Rounds</th>
+      <td class="no-border">{{team1.roundsWon}}</td>
+      <td class="no-border">{{team2.roundsWon}}</td>
     </tr>
   </table>
-  <h3 *ngIf="gameOver">{{winner | titlecase}} has won {{finalStandings}}!</h3>
+  <div *ngIf="gameOver" class="win-message">
+    <h3>{{winner | titlecase}} has won {{finalStandings}}!</h3>
+    <button class="submit" (click)="postMatchData">Press here to add the results to the Standings</button>
+  </div>
 </div>
