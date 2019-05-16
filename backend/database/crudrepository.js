@@ -4,13 +4,28 @@ const { config } = require('./config');
 
 class CrudRepository {
     constructor() {
-        this.connection = mysql.createConnection(config);
+        /*this.connection = mysql.createConnection(config);
         this.connection.connect();
+        */
+       this.users = [
+        {userid: 1, username: 'Antti', password: 'vito'}
+        , {userid: 2, username: 'Niko', password: 'kapteeni'}
+        , {userid: 3, username: 'Jyrki', password: 'maskotti'}
+    ]
     }
     //Login
-    login(user ,callback) {
+    login(user ,callback){
         console.log(user); // WHERE username='${user.username}'
-        const queryString = `SELECT * FROM RKCUSERS;`
+        let compareUser = this.users.filter(a => a.username === user.username);
+        if(compareUser.length === 0){
+            callback('404') ;
+        }else {
+            compareUser = compareUser[0];
+            user.password === compareUser.password
+            ? callback('200')
+            : callback('403');
+        }
+        /*const queryString = `SELECT * FROM RKCUSERS;`
         console.log(queryString);
         this.connection.query('SELECT * FROM RKCUSERS', (error, result) => {
             if(error) throw error;
@@ -23,7 +38,7 @@ class CrudRepository {
                     callback('403');
                 }
             }
-        });
+        });*/
     }
     /*
     // Gets all users

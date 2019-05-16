@@ -10,10 +10,10 @@ export class HttpService {
   postMatchData = (matchData) => {
     console.log(matchData);
   }
-  login(user) {
+  login(user, callback) {
     axios.post(this.url+'login', user)
     .then(response => {
-      console.log(response);
+      callback(response.data);
     })
   }
 }

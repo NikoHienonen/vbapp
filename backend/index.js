@@ -16,11 +16,11 @@ app.post('/login', (req, res) => {
     crudrepo.login(user, (results) => {
         console.log('results: '+ results)
         if(results === '404') { 
-            res.sendStatus(404);
+            res.send('User not found.');
         } else if(results === '403') {
-            res.sendStatus(403);
+            res.send('Invalid password');
         } else {
-            res.sendStatus(200);
+            res.send('OK');
         }
     });
 });

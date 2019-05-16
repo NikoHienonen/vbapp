@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { LoginComponent } from './components/login/login.component';
+import { LogoutComponent } from './components/logout/logout.component';
 import { ScorekeeperComponent } from './components/scorekeeper/scorekeeper.component';
 import { StandingsComponent } from './components/standings/standings.component';
 import { ScheduleComponent } from './components/schedule/schedule.component';
@@ -11,6 +12,7 @@ import { LandingComponent } from './components/landing/landing.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent }
+  , { path: 'logout', component: LogoutComponent}
   , { path: 'scorekeeper', component: ScorekeeperComponent}
   , { path: 'standings', component: StandingsComponent}
   , { path: 'schedule', component: ScheduleComponent}

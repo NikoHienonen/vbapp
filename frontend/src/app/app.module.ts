@@ -13,6 +13,7 @@ import { ScheduleComponent } from './components/schedule/schedule.component';
 import { AboutComponent } from './components/about/about.component';
 import { ScoreformComponent } from './components/scoreform/scoreform.component';
 import { LoginComponent } from './components/login/login.component';
+import { LogoutComponent } from './components/logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { LoginComponent } from './components/login/login.component';
     ScheduleComponent,
     AboutComponent,
     ScoreformComponent,
-    LoginComponent
+    LoginComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,

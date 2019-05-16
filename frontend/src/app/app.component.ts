@@ -5,4 +5,9 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html'
 })
 export class AppComponent {
+  public user: string;
+  constructor(){}
+  ngOnInit() {
+    this.user = sessionStorage.getItem("user");
+  }
 }
