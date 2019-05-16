@@ -85,7 +85,7 @@ button.submit {
 button.submit:hover {
   background-color: var(--tangerine-light);
 }
-input[type=text], input[type=number], input[type=checkbox] select {
+input[type=text], input[type=number], input[type=checkbox], input[type=password], select {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;

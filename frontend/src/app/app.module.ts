@@ -12,6 +12,7 @@ import { LandingComponent } from './components/landing/landing.component';
 import { ScheduleComponent } from './components/schedule/schedule.component';
 import { AboutComponent } from './components/about/about.component';
 import { ScoreformComponent } from './components/scoreform/scoreform.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ScoreformComponent } from './components/scoreform/scoreform.component';
     LandingComponent,
     ScheduleComponent,
     AboutComponent,
-    ScoreformComponent
+    ScoreformComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
