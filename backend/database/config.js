@@ -8,11 +8,13 @@ const config = {
 module.exports = { config };
 
 /*
+mysql --host mydb.tamk.fi --user c7nhieno -p --database dbc7nhieno1
 CREATE TABLE matches(
-    matchid int AUTO_INCREMENT PRIMARY KEY,
-    teams VARCHAR(255),
+    id int AUTO_INCREMENT PRIMARY KEY,
+    homeTeam VARCHAR(255),
+    visitorTeam VARCHAR(255),
     result VARCHAR(255),
-    victory BIT
+    victory VARCHAR(255)
 );
 INSERT INTO matches(teams, result, victory)
 VALUES("RKC-PIPO", "3-1", 1);

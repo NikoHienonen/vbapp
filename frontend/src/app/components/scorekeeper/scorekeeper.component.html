@@ -30,6 +30,7 @@
   </table>
   <div *ngIf="gameOver" class="win-message">
     <h3>{{winner | titlecase}} has won {{finalStandings}}!</h3>
-    <button class="submit" (click)="postMatchData">Press here to add the results to the Standings</button>
+    <button class="submit" (click)="postMatchData()" [disabled]="matchDataSent">Press here to add the results to the Standings</button>
+    <p>{{errorMessage}}</p>
   </div>
 </div>

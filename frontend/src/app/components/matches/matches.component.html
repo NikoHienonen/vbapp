@@ -1,0 +1,20 @@
+<h1>Matches</h1>
+<table *ngIf="!errorMessage">
+  <tr>
+    <th>Teams</th>
+    <th>Result</th>
+    <th>Victory</th>
+    <th>Delete</th>
+  </tr>
+  <tr *ngFor="let match of matches">
+    <td>{{match.homeTeam}} - {{match.visitorTeam}}</td>
+    <td>{{match.result}}</td>
+    <td>{{match.victory}}</td>
+    <td>
+      <button (click)="deleteMatch(match.id)">
+        <i class="fas fa-trash-alt"></i>
+      </button>
+    </td>
+  </tr>
+</table>
+<p>{{errorMessage}}</p>

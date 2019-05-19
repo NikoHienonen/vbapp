@@ -4,41 +4,49 @@ const { config } = require('./config');
 
 class CrudRepository {
     constructor() {
-        /*this.connection = mysql.createConnection(config);
+        this.connection = mysql.createConnection(config);
         this.connection.connect();
-        */
-       this.users = [
-        {userid: 1, username: 'Antti', password: 'vito'}
-        , {userid: 2, username: 'Niko', password: 'kapteeni'}
-        , {userid: 3, username: 'Jyrki', password: 'maskotti'}
-    ]
+    }
+    //Get matches 
+    getMatches(callback) {
+        const queryString = 'SELECT * FROM matches;';
+        this.connection.query(queryString, (error, result) => {
+            if (error) throw error;
+            callback(result);
+        });
     }
     //Login
     login(user ,callback){
-        console.log(user); // WHERE username='${user.username}'
-        let compareUser = this.users.filter(a => a.username === user.username);
-        if(compareUser.length === 0){
-            callback('404') ;
-        }else {
-            compareUser = compareUser[0];
-            user.password === compareUser.password
-            ? callback('200')
-            : callback('403');
-        }
-        /*const queryString = `SELECT * FROM RKCUSERS;`
-        console.log(queryString);
-        this.connection.query('SELECT * FROM RKCUSERS', (error, result) => {
+        const queryString = `SELECT * FROM RKCUSERS WHERE username = '${user.username}';`;
+        this.connection.query(queryString, (error, result) => {
             if(error) throw error;
-            if(result.length === 0 || error) {
+            if (result.length === 0 || error) {
                 callback('404');
             } else {
                 if(user.password === result[0].password) {
-                    callback('200')
+                    callback('200');
                 } else {
                     callback('403');
                 }
             }
-        });*/
+        });
+    }
+    // Post new Match
+    postMatch(matchData, callback) {
+        const queryString = `INSERT INTO matches(homeTeam, visitorTeam, result, victory)
+        VALUES('${matchData.homeTeam}', '${matchData.visitorTeam}', '${matchData.result}', '${matchData.victory}');`;
+        this.connection.query(queryString, (error, result) => {
+            if(error) throw error;
+            callback(result);
+        });
+    }
+    // Delete match by ID
+    deleteMatch(id, callback) {
+        const queryString = `DELETE FROM matches WHERE id = '${id}';`;
+        this.connection.query(queryString, (error, result) => {
+            if(error) callback('404');
+            callback('200');
+        });
     }
     /*
     // Gets all users

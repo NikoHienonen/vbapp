@@ -108,11 +108,11 @@ input[type=checkbox] {
   position: relative;
   box-shadow: 0px 1px 3px rgba(0,0,0,0.5);
 }
-table.match {
+table {
   width: 100%;
   border: 1px lightgray solid;
 }
-table.match th, td {
+table th, td {
   font-size: 2rem;
   padding: 15px;
   text-align: center;
@@ -121,7 +121,7 @@ table.match th, td {
 .no-border{
   border-bottom: none;
 }
-table.match button {
+table button {
   font-size: 1.5rem;
   font-weight: 900;
   border: none;

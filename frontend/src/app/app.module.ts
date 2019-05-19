@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ScorekeeperComponent } from './components/scorekeeper/scorekeeper.component';
-import { StandingsComponent } from './components/standings/standings.component';
+import { MatchesComponent } from './components/matches/matches.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { ScheduleComponent } from './components/schedule/schedule.component';
@@ -20,7 +20,7 @@ import { LogoutComponent } from './components/logout/logout.component';
     AppComponent,
     NavbarComponent,
     ScorekeeperComponent,
-    StandingsComponent,
+    MatchesComponent,
     NotfoundComponent,
     LandingComponent,
     ScheduleComponent,

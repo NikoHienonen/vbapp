@@ -23,9 +23,11 @@ export class ScorekeeperComponent implements OnInit {
   public team2: Team;
   public points: number;
   public teamsSelected = false;
-  public gameOver: boolean = false;
+  public gameOver = false;
   public finalStandings: string;
   public winner: string;
+  public errorMessage: string;
+  public matchDataSent = false;
   constructor(private httpService: HttpService) { }
 
   ngOnInit() {  }
@@ -50,7 +52,7 @@ export class ScorekeeperComponent implements OnInit {
         team.roundsWon++;
         if (team.roundsWon === 3) {
           this.winner = team.name;
-          this.finalStandings = (team.name === this.team1.name 
+          this.finalStandings = (team.name === this.team1.name
           ? `${this.team1.roundsWon} - ${this.team2.roundsWon}`
           : `${this.team2.roundsWon} - ${this.team1.roundsWon}`
           );
@@ -65,6 +67,23 @@ export class ScorekeeperComponent implements OnInit {
     this.team2.points = 0;
   }
   postMatchData = () => {
-    this.httpService.postMatchData('mo');
+    const { team1, team2 } = this;
+    const victory = this.winner.toLowerCase().includes('rkc') ? 'Win' : 'Loss';
+    console.log(victory);
+    const matchData = {
+      homeTeam: team1.name
+      , visitorTeam: team2.name
+      , result: team1.roundsWon + ' - ' + team2.roundsWon
+      , victory};
+    this.httpService.postMatch(matchData, response => {
+      if (response.status !== 200) {
+        this.errorMessage = 'The match could not be posted.';
+      } else {
+        this.matchDataSent = true;
+        this.errorMessage = 'Match posted! Go to matches-tab to see it!';
+      }
+    });
   }
 }
+/*
+VALUES("RKC-PIPO", "3-1", 1); */

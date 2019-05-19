@@ -14,13 +14,34 @@ const server = app.listen(8080, () => {
 app.post('/login', (req, res) => {
     const user = req.body;
     crudrepo.login(user, (results) => {
-        console.log('results: '+ results)
         if(results === '404') { 
             res.send('User not found.');
         } else if(results === '403') {
             res.send('Invalid password');
         } else {
             res.send('OK');
+        }
+    });
+});
+app.get('/matches', (req, res) => {
+    crudrepo.getMatches(results => {
+        res.send(results);
+    });
+});
+// Add new Match
+app.post('/matches', (req, res) => {
+    var matchData = req.body;
+    crudrepo.postMatch(matchData, (result) => {
+        res.send(result);
+    });
+});
+app.delete('/matches/:id', (req, res) => {
+    var id = req.params.id;
+    crudrepo.deleteMatch(id, result => {
+        if(result === '404') {
+            res.sendStatus(404);
+        } else {
+            res.sendStatus(200);
         }
     });
 });

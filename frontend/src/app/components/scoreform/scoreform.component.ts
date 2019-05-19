@@ -19,7 +19,6 @@ export class ScoreformComponent  {
       team2: this.team2,
       points: this.points,
     };
-    console.log(returnData);
     this.submitted.emit(returnData);
   }
 
