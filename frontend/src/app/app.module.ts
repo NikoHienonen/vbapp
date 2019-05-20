@@ -9,7 +9,6 @@ import { ScorekeeperComponent } from './components/scorekeeper/scorekeeper.compo
 import { MatchesComponent } from './components/matches/matches.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { LandingComponent } from './components/landing/landing.component';
-import { ScheduleComponent } from './components/schedule/schedule.component';
 import { AboutComponent } from './components/about/about.component';
 import { ScoreformComponent } from './components/scoreform/scoreform.component';
 import { LoginComponent } from './components/login/login.component';
@@ -23,7 +22,6 @@ import { LogoutComponent } from './components/logout/logout.component';
     MatchesComponent,
     NotfoundComponent,
     LandingComponent,
-    ScheduleComponent,
     AboutComponent,
     ScoreformComponent,
     LoginComponent,

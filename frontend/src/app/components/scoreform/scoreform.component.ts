@@ -5,9 +5,9 @@ import { Component, EventEmitter, Output } from '@angular/core';
   templateUrl: './scoreform.component.html'
 })
 export class ScoreformComponent  {
-  public team1: string = 'rkc';
-  public team2: string = 'lapa';
-  public points = 2;
+  public team1: string;
+  public team2: string;
+  public points = 25;
   @Output() submitted = new EventEmitter<object>();
 
   constructor() {

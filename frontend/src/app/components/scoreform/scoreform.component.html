@@ -1,14 +1,20 @@
 <form #scoreForm="ngForm">
   <div class="form-group">
     <label for="team1">Team 1</label>
-    <input type="text" class="form-control" name="team1"
-    [(ngModel)]="team1" placeHolder="Team 1..." required>
+    <input type="text" class="form-control" name="team1" #team1Element="ngModel"
+    [(ngModel)]="team1" placeHolder="Team 1..." required minlength="3">
+    <div class="form-validation-msg" [hidden]="team1Element.valid || team1Element.pristine">
+      Teamname is required and must be at least 3 characters
+    </div>
   </div>
 
   <div class="form-group">
     <label for="team2">Team 2</label>
-    <input type="text" class="form-control" name="team2"
-    [(ngModel)]="team2" placeHolder="Team 2..." required>
+    <input type="text" class="form-control" name="team2" #team2Element="ngModel"
+    [(ngModel)]="team2" placeHolder="Team 2..." required minlength="3">
+    <div class="form-validation-msg" [hidden]="team2Element.valid || team2Element.pristine">
+      Teamname is required and must be at least 3 characters
+    </div>
   </div>
 
   <div class="form-group">
@@ -17,6 +23,6 @@
     [(ngModel)]="points" required>
   </div>
 
-  <button class="submit" (click)="selected()">Submit</button>
+  <button class="submit" (click)="selected()" [disabled]="!scoreForm.form.valid">Submit</button>
 
 </form>

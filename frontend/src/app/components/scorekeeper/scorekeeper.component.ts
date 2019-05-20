@@ -69,7 +69,6 @@ export class ScorekeeperComponent implements OnInit {
   postMatchData = () => {
     const { team1, team2 } = this;
     const victory = this.winner.toLowerCase().includes('rkc') ? 'Win' : 'Loss';
-    console.log(victory);
     const matchData = {
       homeTeam: team1.name
       , visitorTeam: team2.name

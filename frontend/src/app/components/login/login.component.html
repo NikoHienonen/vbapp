@@ -7,7 +7,7 @@
       <label for="username">Username</label>
       <input type="text" class="form-control" name="username" #usernameElement="ngModel"
       [(ngModel)]="username" placeHolder="Username..." required minlength="4">
-      <div [hidden]="usernameElement.valid || usernameElement.pristine">
+      <div class="form-validation-msg" [hidden]="usernameElement.valid || usernameElement.pristine">
         Username is required and must be at least 4 characters
       </div>
     </div>
@@ -16,7 +16,7 @@
       <label for="password">Password</label>
       <input type="password" class="form-control" name="password" #passwordElement="ngModel"
       [(ngModel)]="password" placeHolder="Password..." required minlength="4">
-      <div [hidden]="passwordElement.valid || passwordElement.pristine">
+      <div class="form-validation-msg" [hidden]="passwordElement.valid || passwordElement.pristine">
           Password is required and must be at least 4 characters
         </div>
     </div>

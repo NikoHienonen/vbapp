@@ -19,7 +19,6 @@ export class LoginComponent implements OnInit {
       if(result === 'OK') {
         sessionStorage.setItem("user", this.username);
         this.router.navigate(['/home']);
-        //window.location.reload(true);
       } else {
         this.errorMessage = result;
       }

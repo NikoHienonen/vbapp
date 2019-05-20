@@ -5,7 +5,7 @@ interface Match {
   homeTeam: string;
   visitorTeam: string;
   result: string;
-  victory: number;
+  victory: string;
 }
 @Component({
   selector: 'app-matches',
